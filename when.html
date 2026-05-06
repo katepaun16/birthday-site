@@ -3,78 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>When & Where</title>
 
 <link rel="stylesheet" href="style.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Cause:wght@100..900&family=Kumbh+Sans:wght,YOPQ@100..900,300&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Cause:wght@100..900&family=Kumbh+Sans:wght,YOPQ@100..900,300&display=swap" rel="stylesheet">
 </head>
 
 <body class="page-when">
 
-<div class="page-wrapper">
+<!-- NAV -->
+<div class="nav" onclick="location.href='index.html'">
+  <img src="house.png">
+</div>
 
-  <!-- NAV -->
-  <div class="nav" onclick="location.href='index.html'">
-    <img src="house.png">
-  </div>
+<div class="when-wrapper">
 
   <!-- ВЕРХНИЙ ДЕКОР -->
   <img src="when_big.png" class="img-left-top">
 
-  <!-- ОСНОВНОЙ КОНТЕНТ -->
+  <!-- ОСНОВНОЙ GRID -->
   <div class="when-main">
 
-  <!-- 1 ТРЕТЬ (пустая под декор) -->
-  <div class="when-col when-col-left"></div>
+    <!-- LEFT (пусто под декор) -->
+    <div class="when-col"></div>
 
-  <!-- 2 ТРЕТЬ (текст) -->
-  <div class="when-col when-col-center">
-    <div class="when-content">
-      <p class="date">May 16 | 5 PM</p>
-      <p class="street">Cuza Vodă 30/1</p>
-      <p class="city">Chisinau, Moldova</p>
-      <p class="place">
-        <a href="https://www.instagram.com/loftclub.md?igsh=OGVpNTA5Mno0eXgy" target="_blank">
-          Space LOFT
+    <!-- CENTER (ТЕКСТ) -->
+    <div class="when-col">
+      <div class="when-content">
+
+        <p class="date">May 16 | 5 PM</p>
+        <p class="street">Cuza Vodă 30/1</p>
+        <p class="city">Chisinau, Moldova</p>
+
+        <p class="place">
+          <a href="https://www.instagram.com/loftclub.md" target="_blank">
+            Space LOFT
+          </a>
+        </p>
+
+      </div>
+    </div>
+
+    <!-- RIGHT (КАРТА + ФОТО) -->
+    <div class="when-col">
+      <div class="when-image">
+
+        <a href="https://www.google.com/maps" target="_blank">
+          <img src="map.png" class="map-img">
         </a>
-      </p>
+
+        <img src="W&W.jpg" class="img-me">
+
+      </div>
     </div>
+
   </div>
 
-  <!-- 3 ТРЕТЬ (карта + фото) -->
-  <div class="when-col when-col-right">
-    <div class="when-image"> <a href="https://www.google.com/maps/place/La+R%C4%83scruce/@46.9789027,28.8532389,18z/data=!4m6!3m5!1s0x40c979342b11e9fd:0x1786395af2309c37!8m2!3d46.978534!4d28.8544304!16s%2Fg%2F11g8crf_g0?entry=ttu&g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank">  <img src="map.png" class="map-img"></a>
-      <img src="W&W.jpg" class="img-me">
-    </div>
+  <!-- НИЖНИЕ ШАГИ -->
+  <div class="when-steps">
+
+    <img src="step_one.jpg" onclick="openModal(this)">
+    <img src="step_two.jpg" onclick="openModal(this)">
+    <img src="step_three.jpg" onclick="openModal(this)">
+
   </div>
 
 </div>
 
-  <!-- ДОП. КАРТИНКИ -->
-<div class="when-steps">
-
-  <img src="step_one.jpg" onclick="openModal(this)">
-  <img src="step_two.jpg" onclick="openModal(this)">
-  <img src="step_three.jpg" onclick="openModal(this)">
-
-</div>
-
-</div>
-
+<!-- MODAL -->
 <div id="imageModal" class="image-modal" onclick="closeModal()">
   <img id="modalImg">
 </div>
 
 <script>
 function openModal(img) {
-  const modal = document.getElementById("imageModal");
-  const modalImg = document.getElementById("modalImg");
-
-  modalImg.src = img.src;
-  modal.classList.add("active");
+  document.getElementById("modalImg").src = img.src;
+  document.getElementById("imageModal").classList.add("active");
 }
 
 function closeModal() {

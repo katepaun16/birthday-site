@@ -40,58 +40,66 @@ body {
 .page-expect { background: #eaffea; }
 .page-contacts { background: #f3e8ff; }
 
-/* HERO - ГЛАВНАЯ СТРАНИЦА*/
-.hero {
-  position: relative;
-  height: 100vh;
-  display: flex;
-}
+/* =========================
+   HERO (АДАПТИВ)
+========================= */
 
-/* Левая часть */
-.hero-left {
-  width: 45%;
+.hero {
+  min-height: 100vh;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  gap: 60px;
+  padding: 40px;
+
+  flex-wrap: wrap; /* ← важно для мобилки */
 }
 
-/* фото */
+/* ЛЕВАЯ ЧАСТЬ */
+.hero-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* КАРТИНКА */
 .hero-img {
-  width: 60%;
-  height: 800px;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+
   object-fit: cover;
+
   border-radius: 50% / 40%;
   border: 8px solid #e6e1da;
   box-shadow: 0 0 0 2px #f28c8c;
 }
 
-/* Правая часть */
+/* ПРАВАЯ ЧАСТЬ */
 .hero-right {
-  width: 55%;
-  position: relative;
+  flex: 1;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+
+  gap: 40px;
 }
 
-/* Katerina turnes 30 */
+/* ДЕКОР */
 .invite-circle-img {
-  position: absolute;
-  top: 150px;
-  right: 400px;
-  width: 600px;
+  width: 100%;
+  max-width: 400px;
   height: auto;
 }
 
-/* Menu grid */
+/* МЕНЮ */
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(2, 180px);
-  gap: 30px;
-  justify-content: center;
-  margin-top: 500px;
-  margin-left: -400px;
+  grid-template-columns: repeat(2, 150px);
+  gap: 20px;
 }
 
 .menu-grid button {
@@ -102,14 +110,34 @@ body {
 }
 
 .menu-grid img {
-  width: 180px;
+  width: 100%;
   height: auto;
-  display: block;
   transition: 0.2s;
 }
 
 .menu-grid img:hover {
   transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .when-steps {
+    gap: 12px;
+  }
+
+  .when-steps img {
+    width: 80px; /* ещё меньше на телефоне */
+  }
+
 }
 
 /* ОБЩИЕ БЛОКИ СТРАНИЦ */
@@ -127,6 +155,47 @@ body {
   text-align: center;
 }
 
+/* =========================
+   LARGE SCREENS (DESKTOP+)
+========================= */
+
+@media (min-width: 1400px) {
+
+  /* HERO */
+  .hero {
+    gap: 40px; /* ближе элементы */
+  }
+
+  .hero-img {
+    max-width: 500px; /* было ~400 */
+  }
+
+  .invite-circle-img {
+    max-width: 500px;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, 180px);
+    gap: 25px;
+  }
+
+  /* WHEN / EXPECT / CONTACTS можно тоже чуть масштабировать */
+
+  .when-content {
+    transform: scale(1.1);
+  }
+
+  .expect-img {
+    width: 300px;
+    height: 300px;
+  }
+
+  .contacts-photo {
+    width: 500px;
+    height: 800px;
+  }
+
+}
 
 /* =========================
    WHEN PAGE GRID LAYOUT
@@ -142,17 +211,59 @@ body {
   padding-bottom: 100px; /* ← отступ от низа */
 }
 
-/* 3 КОЛОНКИ */
+/* =========================
+   WHEN MAIN LAYOUT FIX
+========================= */
+
+.when-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 3 колонки */
 .when-main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  align-items: end; /* ← ключевой момент */
+
+  align-items: end;   /* ← ВАЖНО: прижимаем к низу */
+  min-height: 80vh;
+
+  padding: 120px 60px 100px;
 }
 
-/* КОЛОНКИ */
+/* колонки */
 .when-col {
   display: flex;
   justify-content: center;
+  align-items: flex-end; /* ← ключ */
+}
+
+/* правая колонка */
+.when-image {
+  position: relative;
+  display: flex;
+  align-items: flex-end; /* ← ВАЖНО */
+}
+
+.map-img {
+  width: clamp(250px, 30vw, 550px);
+  border: 6px solid #f28c8c;
+  display: block;
+}
+
+.img-me {
+  position: absolute;
+  bottom: 0;
+  right: -20px;
+
+  width: clamp(120px, 12vw, 240px);
+
+  border-radius: 20px;
+  border: 3px solid #f5d969;
+
+  transform: rotate(5deg);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 /* ТЕКСТ */
@@ -194,10 +305,6 @@ body {
   opacity: 0.7;
 }
 
-/* КАРТА + ФОТО */
-.when-image {
-  position: relative;
-}
 
 .map-img {
   width: 550px;
@@ -229,35 +336,51 @@ body {
   max-width: 25%;
 }
 
-/* НИЖНИЕ КАРТИНКИ */
+/* =========================
+   STEPS (FIX — НЕ ЛОМАЕТ САЙТ)
+========================= */
+
 .when-steps {
-  cursor: pointer;
   position: absolute;
-  bottom: 100px;
   left: 5%;
-  width: 680px;
-  max-width: 50%;
+  bottom: 100px;
+
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+
+  z-index: 2;
 }
 
+/* картинки */
 .when-steps img {
-  width: 200px;
+  width: clamp(80px, 8vw, 160px);
+  height: auto;
+
   border: 2px solid #f28c8c;
+  cursor: pointer;
+
+  transition: transform 0.2s ease;
 }
 
-/* 📱 АДАПТИВ */
-@media (max-width: 800px) {
+.when-steps img:hover {
+  transform: scale(1.05);
+}
 
-  .when-main {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .img-left-top {
+/* адаптив */
+@media (max-width: 900px) {
+  .when-steps {
     position: static;
-    margin: 0 auto;
+    justify-content: center;
+    margin-top: 40px;
   }
 
+  .when-steps img {
+    width: 90px;
+  }
 }
+
+
 
 /* OVERLAY */
 .image-modal {
