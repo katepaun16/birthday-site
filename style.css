@@ -1,0 +1,538 @@
+/* ОСНОВА САЙТА */
+body {
+  margin: 0;
+  font-family: "Righteous", sans-serif;
+  background: #e6e1da;
+  color: #e57373;
+  scroll-behavior: smooth;
+}
+
+/* NAVIGATION */
+.nav {
+  position: fixed;
+  top: 22px;           /* ← расстояние от верхнего края */
+  left: 10px;          /* ← расстояние от левого края */
+  z-index: 10;
+  cursor: pointer;
+  width: 100px;         /* ← ширина домика */
+  height: 100px;        /* ← высота домика */
+}
+
+.nav img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ДОМИК */
+.home-icon {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  cursor: pointer;
+  font-size: 40px;
+}
+
+/* PAGE BACKGROUNDS */
+.page-home { background: #e6e1da; }
+.page-when { background: #f8f6eb; }
+.page-suggestions { background: #ffdede; }
+.page-expect { background: #eaffea; }
+.page-contacts { background: #f3e8ff; }
+
+/* HERO - ГЛАВНАЯ СТРАНИЦА*/
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+}
+
+/* Левая часть */
+.hero-left {
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* фото */
+.hero-img {
+  width: 60%;
+  height: 800px;
+  object-fit: cover;
+  border-radius: 50% / 40%;
+  border: 8px solid #e6e1da;
+  box-shadow: 0 0 0 2px #f28c8c;
+}
+
+/* Правая часть */
+.hero-right {
+  width: 55%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Katerina turnes 30 */
+.invite-circle-img {
+  position: absolute;
+  top: 150px;
+  right: 400px;
+  width: 600px;
+  height: auto;
+}
+
+/* Menu grid */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 180px);
+  gap: 30px;
+  justify-content: center;
+  margin-top: 500px;
+  margin-left: -400px;
+}
+
+.menu-grid button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.menu-grid img {
+  width: 180px;
+  height: auto;
+  display: block;
+  transition: 0.2s;
+}
+
+.menu-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* ОБЩИЕ БЛОКИ СТРАНИЦ */
+.section {
+  min-height: 100vh;
+  padding: 60px 20px;
+}
+
+.badge {
+  background: #f28c8c;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+/* =========================
+   WHEN PAGE GRID LAYOUT
+========================= */
+
+/* ОСНОВА */
+.page-when .page-wrapper {
+  min-height: 80vh;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* ← прижали вниз */
+  padding-bottom: 100px; /* ← отступ от низа */
+}
+
+/* 3 КОЛОНКИ */
+.when-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: end; /* ← ключевой момент */
+}
+
+/* КОЛОНКИ */
+.when-col {
+  display: flex;
+  justify-content: center;
+}
+
+/* ТЕКСТ */
+.when-content {
+  text-align: center;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+/* ТЕКСТ СТИЛИ */
+.date {
+  font-size: 40px;
+  font-weight: bold;
+  color: #f46767;
+}
+
+.street {
+  font-size: 22px;
+  margin: 4px 0 0 0;
+}
+
+.city {
+  font-size: 22px;
+  margin: 0;
+}
+
+.place {
+  font-size: 26px;
+  font-weight: bold;
+  color: #d94f4f;
+  margin-top: 20px;
+}
+
+.place a {
+  color: #d94f4f;
+  text-decoration: none;
+}
+
+.place a:hover {
+  opacity: 0.7;
+}
+
+/* КАРТА + ФОТО */
+.when-image {
+  position: relative;
+}
+
+.map-img {
+  width: 550px;
+  max-width: 100%;
+  border: 6px solid #f28c8c;
+  display: block;
+}
+
+.img-me {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+
+  width: 240px;
+
+  border-radius: 20px;
+  border: 3px solid #f5d969;
+
+  transform: rotate(5deg);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* ВЕРХНЕЕ ИЗОБРАЖЕНИЕ (левая треть) */
+.img-left-top {
+  position: absolute;
+  top: 100px;
+  left: 5%;
+  width: 480px;
+  max-width: 25%;
+}
+
+/* НИЖНИЕ КАРТИНКИ */
+.when-steps {
+  cursor: pointer;
+  position: absolute;
+  bottom: 100px;
+  left: 5%;
+  width: 680px;
+  max-width: 50%;
+}
+
+.when-steps img {
+  width: 200px;
+  border: 2px solid #f28c8c;
+}
+
+/* 📱 АДАПТИВ */
+@media (max-width: 800px) {
+
+  .when-main {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .img-left-top {
+    position: static;
+    margin: 0 auto;
+  }
+
+}
+
+/* OVERLAY */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0,0,0,0.8);
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999;
+}
+
+/* КАРТИНКА В МОДАЛКЕ */
+.image-modal img {
+  max-width: 80%;
+  max-height: 80%;
+
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+/* АКТИВНОЕ СОСТОЯНИЕ */
+.image-modal.active {
+  display: flex;
+}
+
+.image-modal.active img {
+  transform: scale(2); /* ← твои 10x */
+}
+
+
+/* =========================
+   SUGGESTIONS PAGE LAYOUT
+========================= */
+
+/* контейнер */
+.page-wrapper {
+  min-height: 80vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: flex-start; 
+  padding: 80px 20px;
+}
+
+/* верхняя картинка */
+.top-image {
+  width: 400px;
+  max-width: 80%;
+}
+
+/* карточки */
+.cards-row {
+  margin-top: 100px;
+  display: flex;
+  gap: 300px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* изображения и текст */
+.card-item {
+  width: 200px; 
+  text-align: center;
+  font-size: 22px;     /* размер */
+   color: #ff796c;
+  transition: all 0.3s ease;
+  border-radius: 20px;   /* ← вот это скругление */
+  overflow: hidden;      /* ← важно! обрезает содержимое по краям */
+}
+
+/* анимация при наведении на карточку */
+.card-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+/* изображения */
+.card-item img {
+  width: 100%;
+  height: 200px;      /* одинаковая высота */
+  object-fit: contain; /* НЕ обрезает, а вписывает */  
+  
+}
+
+.subtitle{
+  font-size: 18px;
+  color: #888;
+}
+
+/* =========================
+   WHAT TO EXPECT PAGE
+========================= */
+
+/* ОСНОВА */
+.expect-wrapper {
+  min-height: 80vh;
+  padding-top: 200px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: center; /* ← центр по вертикали */
+  gap: 80px;
+}
+
+/* WHAT (сверху по центру) */
+.expect-top {
+  transform: translateY(-150px); /* ← подними вверх */
+  display: flex;
+  justify-content: center;
+}
+
+.what-img {
+  width: 380px;
+  height: auto;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* НИЖНИЙ РЯД */
+.expect-bottom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 140px; /* ↑ увеличили расстояние между кружками */
+
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto; /* ← центрируем весь блок */
+  justify-items: center; /* ← центр внутри каждой колонки */
+  align-items: start;
+}
+
+/* ЭЛЕМЕНТЫ */
+.expect-item {
+  text-align: center;
+}
+
+/* КРУГЛЫЕ КАРТИНКИ */
+.expect-img {
+  width: 260px;
+  height: 260px;
+
+  object-fit: cover;
+  border-radius: 50%;
+
+  border: 8px solid #eaffea;
+  box-shadow: 0 0 0 3px #f28c8c;
+}
+
+/* ТЕКСТ */
+.expect-text {
+  margin-top: 15px;
+  font-size: 18px;
+  color: #e57373;
+  text-align: center;
+}
+
+/* маленькое верхнее изображение */
+.small-top {
+  width: 540px;
+  height: auto;
+
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+
+  border-radius: 0 !important; /* ← не круг */
+}
+
+/* NAV */
+.nav {
+  position: fixed;
+  top: 22px;
+  left: 10px;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.nav img {
+  width: 100%;
+  height: 100%;
+}
+
+/* АДАПТИВ */
+@media (max-width: 800px) {
+  .expect-wrapper {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}
+
+/* =========================
+   CONTACTS PAGE
+========================= */
+
+.contacts-wrapper {
+  position: relative;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ВЕРХНЯЯ КАРТИНКА (как when) */
+.questions-img {
+  position: absolute;
+  top: 100px;
+  left: 5%;
+
+  width: 480px;
+  max-width: 25%;
+
+  z-index: 2;
+}
+
+/* ЦЕНТР */
+.contacts-center {
+  position: relative;
+}
+
+/* ФОТО С ОВАЛЬНОЙ РАМКОЙ */
+.contacts-photo {
+  width: 440px;
+  height: 740px;
+
+  object-fit: cover;
+
+  border-radius: 50% / 40%; /* ← овал */
+
+  border: 10px solid #f3e8ff; /* внутренняя рамка */
+  box-shadow: 0 0 0 4px #f28c8c; /* внешняя рамка */
+}
+
+/* ТЕКСТ СПРАВА */
+.contacts-text {
+  margin-left: 80px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  text-align: left;
+}
+
+/* ЗАГОЛОВКИ */
+.label {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #999;
+}
+
+/* ЗНАЧЕНИЯ */
+.value {
+  font-size: 20px;
+  color: #e57373;
+  margin: 2px 0 8px 0; /* ← уменьшили расстояние сверху */
+}
+
+/* ДВОЙНОЙ ОТСТУП */
+.spaced {
+  margin-top: 30px;
+}
